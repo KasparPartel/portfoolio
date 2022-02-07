@@ -1,36 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Source+Serif+4:wght@300;400&display=swap');
+/* Sacramento */
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+/* Supermercado One */
+@import url('https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap');
+/* Raleway */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap');
 
 .nav {
     display: flex;
+    gap: 2rem;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
 
-    padding: 1rem 0;
+    padding: 0.7rem max(3vh, 1rem);
 
     background-color: white;
     box-shadow: 0 -7px 20px 0 #000000;
 }
 
+.nav__heading {
+    padding: 0.3em 0.6em;
+    background-color: black;
+}
+
+.nav__heading a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Supermercado One', cursive;
+    font-weight: 500;
+    font-size: 1.6rem;
+
+    transition: color 0.35s ease-in;
+}
+
+.nav__heading a:hover {
+    color: yellow;
+}
+
 .nav ol {
     display: flex;
+    gap: 3rem;
     justify-content: space-between;
     align-items: center;
     list-style: none;
 }
 
 .nav__list-item {
-    padding: 0.7rem 2rem;
+    gap: 2rem;
     text-align: center;
 }
 
 .nav__list-item a {
     text-decoration: none;
     color: #494949;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 500;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
     font-size: 0.9rem;
 }
 
@@ -38,14 +64,38 @@
     color: #6d6d6d;
 }
 
-.nav__heading {
-    margin-left: 2rem;
+.nav__hamburger {
+    display: none;
+    color: black;
 }
 
-.nav__heading a {
-    text-decoration: none;
-    color: #494949;
-    font-family: "Sacramento", cursive;
-    font-weight: 400;
-    font-size: 1.8rem;
+@media (max-width: 700px) {
+    .nav > ol {
+        visibility: hidden;
+    }
+
+    .nav__active > ol {
+        position: fixed;
+        inset: 0;
+
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+
+        visibility: visible;
+        background: black;
+    }
+
+    .nav__active > ol .nav__list-item a {
+        color: white;
+    }
+
+    .nav__hamburger {
+        display: block;
+        z-index: 10;
+    }
+
+    .nav__active > .nav__hamburger {
+        color: white;
+    }
 }
