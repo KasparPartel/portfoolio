@@ -7,4 +7,14 @@
 
 .hero__bg-image {
     width: 5rem;
+    animation: rotate-hero__bg-image 3s linear infinite;
+}
+
+@keyframes rotate-hero__bg-image {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
